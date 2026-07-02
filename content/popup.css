@@ -135,6 +135,7 @@
   margin-top: 6px;
   max-height: 14rem;
   overflow-y: auto;
+  padding-right: 10px;
 }
 
 .status {
