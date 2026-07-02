@@ -3,26 +3,21 @@
     "gecko": {
       "id": "lexigo@jortvanleenen",
       "data_collection_permissions": {
-        "required": [
-          "none"
-        ]
+        "required": ["none"]
       }
     }
   },
   "author": "Jort van Leenen",
   "background": {
-    "scripts": [
-      "background/background.js"
-    ]
+    "scripts": ["background/background.js"]
   },
   "content_scripts": [
     {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
+      "matches": ["http://*/*", "https://*/*"],
       "js": [
-        "content_scripts/lexigo.js"
+        "content/vendor/floating-ui.core.umd.min.js",
+        "content/vendor/floating-ui.dom.umd.min.js",
+        "content/lexigo.js"
       ],
       "run_at": "document_end"
     }
@@ -41,8 +36,12 @@
   "options_ui": {
     "page": "options/options.html"
   },
-  "permissions": [
-    "storage"
-  ],
-  "version": "1.0.0"
+  "permissions": ["storage"],
+  "version": "2.0.0",
+  "web_accessible_resources": [
+    {
+      "resources": ["content/popup.html", "content/popup.css"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ]
 }
